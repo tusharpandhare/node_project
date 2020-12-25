@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    
+    <title>Signup </title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/"> -->
+
+    <!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" >
+
+    <!-- Favicons -->
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .maincontainer{
+        width:40%;
+        height: auto;
+        border: 2px solid rgba(0, 183, 255, 0.2);
+        padding: 5%;
+        margin-top: 10%;
+        /* transform: translate(0,-80%); */
+        text-align: center;
+      }
+    </style>
+     
+  </head>
+  <body>
+    <div class="container mt-5">
+
+      <% if (msg) { %>
+        <div class="alert alert-<%= type%> alert-dismissible fade show" role="alert">
+          <strong><%= intro%></strong> <p><%= info%></p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+        <% } %>
+    </div>
+  <div class="container maincontainer">
+    <form class="form-signin container" action="/checklogin" method="POST">
+      <!-- <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="text" name="username" id="username" class="form-control" placeholder="username" required autofocus value="dada">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="password" class="form-control" placeholder="Password" required value="Dada@1234">
+      <!-- <label for="token" class="sr-only">token</label>
+      <input type="text" name="token" id="token" class="form-control" value="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhZGEiLCJwYXNzd29yZCI6IkRhZGFAMTIzNCIsImlhdCI6MTU5ODc2NTQ4MiwiZXhwIjoxNTk4NzY5MDgyfQ.9fSoqVqYo92MrU2PqcQWNSkE40Q2Pc9WueOlgi6vTrg" required> -->
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <!-- <input type="submit" value="Sign"> -->
+      <button class="btn btn-lg btn-primary btn-block" id="submit" type="submit">Sign in</button>
+    <hr>
+    <p>Not Registered? <a href="/register">Create Account</a> </p>
+    </form>
+  </div>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+ localStorage.removeItem('token');
+  console.log("we are submitting now");
+  let submit = document.getElementById('submit');
+  let username = document.getElementById('username').value;
+  let password = document.getElementById('password').value;
+  submit.addEventListener('onclick',btnclickhandler)
+
+  function btnclickhandler(){
+    // instantiate an xhr object
+    const xhr = new XMLHttpRequest();
+    
+
+    // open the xhr object
+    // xhr.open('post','/checklogin',true);
+    // xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+    xhr.onprogress = function(){
+      console.log('on progress');
+    }
+    xhr.onload = function(){
+      console.log(this.responseText);
+    }
+    // param = `{"username":"dada","password":"Dada@1234"}`;
+    xhr.send('/checklogin');
+  }
+</script>
+
+</body>
+</html>

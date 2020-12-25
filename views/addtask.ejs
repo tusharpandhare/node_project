@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add task</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .container{
+           border-radius: 10px;
+            /* background-color:black; */
+            width: 500px;
+            padding: 5vw;
+        }
+        label{
+            padding-top: 20px;
+        }
+        label{
+            color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container bg-warning">
+        <h1>ADD TASK</h1>
+        <form action="/addnewtask" method="POST">
+            <label for="taskname">Name</label><br>
+            <input type="text" name="name" id="taskname" placeholder="Task name" list="tasklist" required class="w-100">
+            <datalist id="tasklist">
+				<option value="Exersize"></option> 
+				<option value="Learn Node js"></option>
+				<option value="Do the  shopping"></option>
+				<option value="wake up in morning"></option>
+				<option value="meeting"></option>
+				<option value="pick up someone"></option>
+				<option value="drop someone"></option>
+				<option value="study"></option>
+				<option value="guest comming"></option>
+				<option value="weekend plane"></option>
+				<option value="prepare Dinner"></option>
+				<option value="go to school/collage/office"></option>
+				<option value="recharge expire"></option>
+				<option value="medical apointment"></option>
+				<option value="exam"></option>
+				<option value="marriage/other function"></option>
+				<option value="treaking/longdrive"></option>
+				<option value="family time	"></option>	</datalist><br>
+            <label for="category">Category</label><br>
+            <input type="text" name="category" id="category" list="cat" required class="w-100"/>
+            <datalist id="cat">
+                <option >Personal</option>
+                <option >Public</option>
+            </datalist><br>
+
+            <!-- priority -->
+            <label for="pri">Priority</label><br>
+            <input type="text" name="priority" id="pri" list="priority" required class="w-100"/>
+            <datalist id="priority">
+                <option >High</option>
+                <option >Medium</option>
+                <option >Low</option>
+            </datalist><br>
+            <label for="date">Start Date</label><br>
+            <input type="date" name="startdate" id="date" placeholder="dd/mm/yyyy" class="w-100"><br>
+            <label for="enddate">End Date</label><br>
+            <input type="date" name="enddate" id="enddate" class="w-100"><br>
+            <input type="submit" value="submit" style="margin-top: 15px;" class="w-100 btn btn-primary">
+
+
+
+            
+        </form>
+    </div>
+
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

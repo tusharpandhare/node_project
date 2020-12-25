@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container " id="addtask" style=" width: 60%;">
+        <hr>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <h1>Update Task</h1> 
+          </div>
+        <form action="/updatetask" method="POST"  class="form-horizontal form-signin container">
+            <input type="hidden" name="id" value="<%= records._id%>">
+            <label for="taskname " class="control-label"></label>
+            <input type="text" name="name" id="taskname" class="form-control" value="<%= records.name%>" list="tasklist" required class="w-auto">
+            <datalist id="tasklist">
+        <option value="Exersize" <% if(records.name =="Exersize"){%> selected <% }%>>   </option> 
+        <option value="Learn Node js" <% if(records.name =="Learn node js"){%> selected <% }%> ></option>
+        <option value="Do the  shopping" <% if(records.name =="Do the  shopping"){%> selected <% }%> ></option>
+        <option value="wake up in morning" <% if(records.name =="wake up in morning"){%> selected <% }%> ></option>
+        <option value="meeting" <% if(records.name =="meeting"){%> selected <% }%> ></option>
+        <option value="pick up someone" <% if(records.name =="pick up someone"){%> selected <% }%> ></option>
+        <option value="drop someone" <% if(records.name =="drop someone"){%> selected <% }%> ></option>
+        <option value="study" <% if(records.name =="study"){%> selected <% }%> ></option>
+        <option value="guest comming" <% if(records.name =="guest comming"){%> selected <% }%> ></option>
+        <option value="weekend plane" <% if(records.name =="weekend plane"){%> selected <% }%> ></option>
+        <option value="prepare Dinner" <% if(records.name =="prepare Dinner"){%> selected <% }%> >prepare Dinner</option>
+        <option value="go to school/collage/office" <% if(records.name =="go to school/collage/office"){%> selected <% }%> ></option>
+        <option value="recharge expire" <% if(records.name =="recharge expire"){%> selected <% }%> ></option>
+        <option value="medical apointment" <% if(records.name =="medical apointment"){%> selected <% }%> ></option>
+        <option value="exam" <% if(records.name =="exam"){%> selected <% }%> ></option>
+        <option value="marriage/other function" <% if(records.name =="marriage/other function"){%> selected <% }%> ></option>
+        <option value="treaking/longdrive" <% if(records.name =="treaking/longdrive"){%> selected <% }%> ></option>
+        <option value="family time	" <% if(records.name =="family time"){%> selected <% }%> ></option>	</datalist><br>
+            <label for="category" class="control-label">Category</label><br>
+            <input type="text" name="category" id="category" list="cat" required class="w-100" value="<%= records.category%> "/>
+            <datalist id="cat">
+                <option >Personal</option>
+                <option >Public</option>
+            </datalist><br>
+      
+            <!-- priority -->
+            <label for="pri" class="control-label">Priority <% records.priority%></label>
+            <input type="text" name="priority" class="form-control" id="pri" list="priority" required class="w-100" value="<%= records.priority%>"/>
+            <datalist id="priority">
+                <option value="High" <% if(records.priority=='High'){%> selected <% }%> >High</option>
+                <option value="Medium" <% if(records.priority=='Medium'){%> selected <% }%> >Medium</option>
+                <option value="Low" <% if(records.priority=='Low'){%> selected <% }%> >Low</option>
+            </datalist><br>
+            <label for="date" class="control-label">Start Date</label>
+            <input type="date" name="startdate" class="form-control" id="date" value="<%= records.startdate%>" class="w-100" required><br>
+            <label for="enddate" class="control-label">End Date</label>
+            <input type="date" name="enddate" class="form-control" id="enddate" class="w-100" value="<%= records.enddate%>" required><br>
+            <input type="submit" value="submit"  style="margin-top: 15px;" class=" btn btn-primary">
+            <!-- <button value="Cancel" style="margin-top: 15px;" class="btn btn-primary" id="canceltask" onclick="hideme()"> Cancel</button> -->
+      
+      
+      
+            
+        </form>
+        <hr>
+      </div>
+      <script src="/js/jquery.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

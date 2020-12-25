@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<style>
+		.alertmsg{
+			height:auto;
+			margin-top: 5vw;
+			/* background-color: aqua; */
+			/* padding: 5vw; */
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="container mt-5">
+		<% if (name) { %>
+			<div class="alert alert-<%= type%> alert-dismissible fade show" role="alert">
+				<strong><%= intro%></strong> <p><%= msg%></p>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			<% } %>
+	</div>
+	<div class="container mt-5">
+		<div class="card bg-light">
+		<article class="card-body mx-auto" style="max-width: 400px;">
+			<h4 class="card-title mt-3 text-center">Create Account</h4>
+			<form action="/registerme" method="POST">
+				<!-- name -->
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text bg-light border-top-0 border-left-0"> <i class="fa fa-user"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+						<path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+						<path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+					  </svg></i> </span>
+				 </div>
+				<input name="name" class="form-control border-right-0 border-left-0 border-top-0 bg-light " placeholder="Name" type="text" required>
+			</div> <!-- form-group// -->
+			<!-- email -->
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text bg-light border-top-0 border-left-0"><i><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+					  </svg></i> </span>
+				 </div>
+				<input name="email" class="form-control border-right-0 border-left-0 border-top-0 bg-light" placeholder="Email address" type="email" required>
+			</div> <!-- form-group// -->
+			<!-- username -->
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text bg-light border-top-0 border-left-0"> <i class="fa fa-user"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+					  </svg></i> </span>
+				 </div>
+				<input name="username" class="form-control border-right-0 border-left-0 border-top-0 bg-light" placeholder="User Name" type="text" required>
+			</div>
+			<!-- password -->
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text bg-light border-top-0 border-left-0"> <i class="fa fa-lock"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+						<path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+					  </svg></i> </span>
+				</div>
+				<input name="password" id="password" class="form-control border-right-0 border-left-0 border-top-0 bg-light" placeholder="Create password" type="password" required>
+			</div> <!-- form-group// -->
+			<!-- confirm password -->
+			<div class="form-group input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text bg-light border-top-0 border-left-0"> <i class="fa fa-lock"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shield-fill-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm2.854 6.354a.5.5 0 0 0-.708-.708L7.5 8.793 6.354 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+					  </svg></i> </span>
+				</div>
+				<input name="cpassword" id="cpassword" class="form-control border-right-0 border-left-0 border-top-0 bg-light " placeholder="Confirm password" type="password" required >
+			</div> <!-- form-group// --> 
+			<label>
+				<input type="checkbox" value="remember-me" id="chkbox" required oninput="checkconfirmpswd()"> Accept Terms & Policies 
+			  </label>                                     
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+			</div> <!-- form-group// -->      
+			<p class="text-center">Have an account? <a href="/">Log In</a> </p>                                                                 
+		</form>
+		</article>
+		</div> <!-- card.// -->
+		
+		</div> 
+		<!--container end.//-->
+		
+		
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- <script>
+		function checkconfirmpswd(){
+			
+			var password = document.getElementById( 'password' ).value;
+			var cpassword = document.getElementById( 'cpassword' ).value;
+			var alert = document.getElementById( 'alert' );
+			if(!(password === cpassword)){
+			
+					alert.innerHTML = '<div class="alert alert-danger" role="alert"><h4 class="alert-heading">Both passwords need to match</h4></div>';	
+	
+				
+				document.getElementById('chkbox').checked = false;
+				setInterval(() => {
+					alert.removeChild();	
+				}, 2000);
+			}
+		}
+	</script> -->
+</body>
+</html>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> -->
+
+
